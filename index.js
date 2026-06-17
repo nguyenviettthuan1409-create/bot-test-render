@@ -16,7 +16,7 @@ const botOptions = {
   host: '168.119.210.168',         // IP server của bạn
   port: 3035,                      // Port server của bạn
   username: 'Server_247',          // ĐÃ ĐỔI TÊN THÀNH SERVER_247
-  version: '1.21.1'                // Phiên bản chuẩn 1.21.1
+  version: '1.21.11'                // Phiên bản chuẩn 1.21.1
 };
 // =================================================================
 
