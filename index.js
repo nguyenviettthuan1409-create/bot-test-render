@@ -16,7 +16,7 @@ const botOptions = {
   host: '168.119.210.168',         // IP server của bạn
   port: 3035,                      // Port server của bạn
   username: 'BotTreo247',          // Tên hiển thị của Bot trong game (Bạn đổi tên khác tùy ý)
-  version: '1.20.1'                // Đang để mặc định là 1.20.1. Nếu server dùng bản khác, bạn hãy sửa lại số này nhé!
+  version: '1.21.11'                // Đang để mặc định là 1.20.1. Nếu server dùng bản khác, bạn hãy sửa lại số này nhé!
 };
 // =================================================================
 
