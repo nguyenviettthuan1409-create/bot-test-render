@@ -15,8 +15,8 @@ app.listen(PORT, () => {
 const botOptions = {
   host: '168.119.210.168',         // IP server của bạn
   port: 3035,                      // Port server của bạn
-  username: 'BotTreo247',          // Tên hiển thị của Bot trong game (Bạn đổi tên khác tùy ý)
-  version: '1.21.11'                // Đang để mặc định là 1.20.1. Nếu server dùng bản khác, bạn hãy sửa lại số này nhé!
+  username: 'Server_247',          // ĐÃ ĐỔI TÊN THÀNH SERVER_247
+  version: '1.21.1'                // Phiên bản chuẩn 1.21.1
 };
 // =================================================================
 
@@ -24,17 +24,41 @@ function createBot() {
   const bot = mineflayer.createBot(botOptions);
 
   bot.on('spawn', () => {
-    console.log('🤖 Bot da vao server Minecraft thanh cong!');
+    console.log('🤖 Bot Server_247 da vao server Minecraft thanh cong!');
+    
+    // 🔥 TÍNH NĂNG ANTI-KICK XỊN: Cứ mỗi 1 phút (60000ms), bot tự LÙI -> NHẢY -> TIẾN
+    setInterval(() => {
+      if (bot && bot.entity) {
+        console.log('🚶 Bot dang thuc hien hanh dong anti-afk...');
+        
+        // 1. Lùi lại 1 block (giữ nút lùi trong 300 mili giây)
+        bot.setControlState('back', true);
+        
+        setTimeout(() => {
+          bot.setControlState('back', false);
+          
+          // 2. Nhảy lên
+          bot.setControlState('jump', true);
+          
+          setTimeout(() => {
+            bot.setControlState('jump', false);
+            
+            // 3. Tiến lên lại vị trí cũ (giữ nút tiến trong 300 mili giây)
+            bot.setControlState('forward', true);
+            
+            setTimeout(() => {
+              bot.setControlState('forward', false);
+              console.log('✅ Bot da ve lai vi tri cu.');
+            }, 300);
+            
+          }, 200);
+          
+        }, 300);
+      }
+    }, 60000); // 60000ms = 1 phút
   });
 
-  bot.on('chat', (username, message) => {
-    if (username === bot.username) return;
-    if (message === 'hello') {
-      bot.chat(`Chao ${username}! Toi la bot treo may 24/7.`);
-    }
-  });
-
-  // Tự động kết nối lại nếu server bị restart hoặc bot bị kick
+  // Tự động kết nối lại nếu server bị restart hoặc bot bị đá
   bot.on('end', () => {
     console.log('❌ Bot bi mat ket noi. Dang thu vao lai sau 15 giay...');
     setTimeout(createBot, 15000);
