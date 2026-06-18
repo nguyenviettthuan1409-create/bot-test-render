@@ -12,7 +12,7 @@ const botOptions = {
   host: '51.161.208.84',           // 🌟 ĐÃ ĐỔI: IP server mới
   port: 4770,                      // 🌟 ĐÃ ĐỔI: Port server mới
   username: 'Server_247',          // Tên nhân vật của Bot
-  version: '1.21.1',               // Phiên bản Minecraft
+  version: '1.21.11',               // Phiên bản Minecraft
   viewDistance: 'tiny'             // Giảm tầm nhìn để tiết kiệm RAM
 };
 // =====================================================================
